@@ -46,6 +46,7 @@ pub trait BlackBoxFunctionSolver {
     ) -> Result<Vec<FieldElement>, BlackBoxResolutionError>;
 }
 
+#[derive(Debug, Clone, Default, Copy)]
 pub struct StubbedBlackBoxSolver;
 
 impl StubbedBlackBoxSolver {

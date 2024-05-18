@@ -1,5 +1,6 @@
 use acvm::acir::native_types::WitnessStack;
-use bn254_blackbox_solver::Bn254BlackBoxSolver;
+use acvm_blackbox_solver::StubbedBlackBoxSolver;
+
 use clap::Args;
 
 use nargo::artifacts::debug::DebugArtifact;
@@ -110,7 +111,7 @@ pub(crate) fn execute_program(
     inputs_map: &InputMap,
     foreign_call_resolver_url: Option<&str>,
 ) -> Result<WitnessStack, CliError> {
-    let blackbox_solver = Bn254BlackBoxSolver::new();
+    let blackbox_solver = StubbedBlackBoxSolver;
 
     let initial_witness = compiled_program.abi.encode(inputs_map, None)?;
 

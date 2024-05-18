@@ -1,8 +1,8 @@
+use acvm_blackbox_solver::StubbedBlackBoxSolver;
 use async_lsp::{
     concurrency::ConcurrencyLayer, panic::CatchUnwindLayer, server::LifecycleLayer,
     tracing::TracingLayer,
 };
-use bn254_blackbox_solver::Bn254BlackBoxSolver;
 use clap::Args;
 use noir_lsp::NargoLspService;
 use tower::ServiceBuilder;
@@ -25,7 +25,7 @@ pub(crate) fn run(_args: LspCommand, _config: NargoConfig) -> Result<(), CliErro
 
     runtime.block_on(async {
         let (server, _) = async_lsp::MainLoop::new_server(|client| {
-            let blackbox_solver = Bn254BlackBoxSolver::new();
+            let blackbox_solver = StubbedBlackBoxSolver;
             let router = NargoLspService::new(&client, blackbox_solver);
 
             ServiceBuilder::new()

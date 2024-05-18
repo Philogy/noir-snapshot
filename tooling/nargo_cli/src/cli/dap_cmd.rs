@@ -8,6 +8,8 @@ use noirc_abi::input_parser::Format;
 use noirc_driver::{CompileOptions, CompiledProgram, NOIR_ARTIFACT_VERSION_STRING};
 use noirc_frontend::graph::CrateName;
 
+use acvm_blackbox_solver::StubbedBlackBoxSolver;
+
 use std::io::{BufReader, BufWriter, Read, Write};
 use std::path::Path;
 
@@ -193,7 +195,7 @@ fn loop_uninitialized_dap<R: Read, W: Write>(
                     Ok((compiled_program, initial_witness)) => {
                         server.respond(req.ack()?)?;
 
-                        let blackbox_solver = bn254_blackbox_solver::Bn254BlackBoxSolver::new();
+                        let blackbox_solver = StubbedBlackBoxSolver;
 
                         noir_debugger::run_dap_loop(
                             server,

@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 use acvm::acir::native_types::{WitnessMap, WitnessStack};
-use bn254_blackbox_solver::Bn254BlackBoxSolver;
+use acvm_blackbox_solver::StubbedBlackBoxSolver;
 use clap::Args;
 
 use fm::FileManager;
@@ -219,7 +219,7 @@ pub(crate) fn debug_program(
     compiled_program: &CompiledProgram,
     inputs_map: &InputMap,
 ) -> Result<Option<WitnessMap>, CliError> {
-    let blackbox_solver = Bn254BlackBoxSolver::new();
+    let blackbox_solver = StubbedBlackBoxSolver;
 
     let initial_witness = compiled_program.abi.encode(inputs_map, None)?;
 

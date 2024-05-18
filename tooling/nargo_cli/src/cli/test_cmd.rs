@@ -1,7 +1,7 @@
 use std::io::Write;
 
 use acvm::BlackBoxFunctionSolver;
-use bn254_blackbox_solver::Bn254BlackBoxSolver;
+use acvm_blackbox_solver::StubbedBlackBoxSolver;
 use clap::Args;
 use fm::FileManager;
 use nargo::{
@@ -84,7 +84,7 @@ pub(crate) fn run(args: TestCommand, config: NargoConfig) -> Result<(), CliError
         .into_iter()
         .par_bridge()
         .map(|package| {
-            run_tests::<Bn254BlackBoxSolver>(
+            run_tests::<StubbedBlackBoxSolver>(
                 &workspace_file_manager,
                 &parsed_files,
                 package,

@@ -21,20 +21,17 @@ members = [
     "tooling/nargo_toml",
     "tooling/noirc_abi",
     "tooling/noirc_abi_wasm",
-    "tooling/acvm_cli",
     # ACVM
     "acvm-repo/acir_field",
     "acvm-repo/acir",
     "acvm-repo/acvm",
-    "acvm-repo/acvm_js",
     "acvm-repo/brillig",
     "acvm-repo/brillig_vm",
     "acvm-repo/blackbox_solver",
-    "acvm-repo/bn254_blackbox_solver",
     # Utility crates
     "utils/iter-extended",
 ]
-default-members = ["tooling/nargo_cli", "tooling/acvm_cli"]
+default-members = ["tooling/nargo_cli"]
 resolver = "2"
 
 [workspace.package]
@@ -56,7 +53,6 @@ acvm = { version = "0.45.0", path = "acvm-repo/acvm" }
 brillig = { version = "0.45.0", path = "acvm-repo/brillig", default-features = false }
 brillig_vm = { version = "0.45.0", path = "acvm-repo/brillig_vm", default-features = false }
 acvm_blackbox_solver = { version = "0.45.0", path = "acvm-repo/blackbox_solver", default-features = false }
-bn254_blackbox_solver = { version = "0.45.0", path = "acvm-repo/bn254_blackbox_solver", default-features = false }
 blackbox_solver = { version = "0.45.0", path = "acvm-repo/blackbox_solver", default-features = false }
 
 # Noir compiler workspace dependencies
@@ -76,7 +72,6 @@ noir_lsp = { path = "tooling/lsp" }
 noir_debugger = { path = "tooling/debugger" }
 noirc_abi = { path = "tooling/noirc_abi" }
 bb_abstraction_leaks = { path = "tooling/bb_abstraction_leaks" }
-acvm_cli = { path = "tooling/acvm_cli" }
 
 # Misc utils crates
 iter-extended = { path = "utils/iter-extended" }
