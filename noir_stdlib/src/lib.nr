@@ -6,7 +6,6 @@ mod merkle;
 mod schnorr;
 mod ecdsa_secp256k1;
 mod ecdsa_secp256r1;
-mod eddsa;
 mod embedded_curve_ops;
 mod sha256;
 mod sha512;

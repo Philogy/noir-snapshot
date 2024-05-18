@@ -1,10 +1,9 @@
-mod poseidon;
 mod mimc;
 mod poseidon2;
 
 use crate::default::Default;
-use crate::uint128::U128;
 use crate::sha256::{digest, sha256_var};
+use crate::uint128::U128;
 
 #[foreign(sha256)]
 // docs:start:sha256

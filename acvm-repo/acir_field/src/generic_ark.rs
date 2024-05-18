@@ -236,8 +236,7 @@ impl<F: PrimeField> FieldElement<F> {
     }
 
     pub fn to_u128(self) -> u128 {
-        let bytes = self.to_be_bytes();
-        u128::from_be_bytes(bytes[16..32].try_into().unwrap())
+        self.to_be_bytes().iter().fold(0u128, |x, b| (x * 256 + *b as u128))
     }
 
     pub fn try_into_u128(self) -> Option<u128> {
@@ -290,12 +289,14 @@ impl<F: PrimeField> FieldElement<F> {
         Some(FieldElement::from_be_bytes_reduce(&hex_as_bytes))
     }
 
-    pub fn to_be_bytes(self) -> Vec<u8> {
-        // to_be_bytes! uses little endian which is why we reverse the output
-        // TODO: Add a little endian equivalent, so the caller can use whichever one
-        // TODO they desire
+    pub fn to_le_bytes(self) -> Vec<u8> {
         let mut bytes = Vec::new();
         self.0.serialize_uncompressed(&mut bytes).unwrap();
+        bytes
+    }
+
+    pub fn to_be_bytes(self) -> Vec<u8> {
+        let mut bytes = self.to_le_bytes();
         bytes.reverse();
         bytes
     }
