@@ -33,9 +33,9 @@ criterion.workspace = true
 pprof.workspace = true
 
 [features]
-default = ["bn254"]
 bn254 = ["acir_field/bn254", "brillig/bn254"]
 bls12_381 = ["acir_field/bls12_381", "brillig/bls12_381"]
+baby_bear = ["acir_field/baby_bear"]
 
 [[bench]]
 name = "serialization"

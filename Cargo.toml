@@ -57,6 +57,7 @@ brillig = { version = "0.45.0", path = "acvm-repo/brillig", default-features = f
 brillig_vm = { version = "0.45.0", path = "acvm-repo/brillig_vm", default-features = false }
 acvm_blackbox_solver = { version = "0.45.0", path = "acvm-repo/blackbox_solver", default-features = false }
 bn254_blackbox_solver = { version = "0.45.0", path = "acvm-repo/bn254_blackbox_solver", default-features = false }
+blackbox_solver = { version = "0.45.0", path = "acvm-repo/blackbox_solver", default-features = false }
 
 # Noir compiler workspace dependencies
 fm = { path = "compiler/fm" }

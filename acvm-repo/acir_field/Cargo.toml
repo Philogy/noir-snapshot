@@ -33,10 +33,8 @@ git = "https://github.com/Philogy/ark-baby-bear"
 rev = "c74ab05"
 optional = true
 default-features = false
-name = "ark-baby-bear"
 
 [features]
-default = ["bn254"]
 bn254 = ["dep:ark-bn254", "dep:ark-ff"]
 bls12_381 = ["dep:ark-bls12-381", "dep:ark-ff"]
 baby_bear = ["dep:ark_baby_bear_ff", "dep:ark-ff"]

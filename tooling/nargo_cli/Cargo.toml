@@ -32,8 +32,9 @@ noirc_driver.workspace = true
 noirc_frontend.workspace = true
 noirc_abi.workspace = true
 noirc_errors.workspace = true
-acvm.workspace = true
-bn254_blackbox_solver.workspace = true
+acvm  = { workspace = true, features = ["baby_bear"] }
+acvm_blackbox_solver = { workspace = true, features = ["baby_bear"] }
+
 toml.workspace = true
 serde.workspace = true
 serde_json.workspace = true

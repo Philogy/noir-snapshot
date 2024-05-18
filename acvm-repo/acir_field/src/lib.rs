@@ -17,7 +17,7 @@ cfg_if::cfg_if! {
         pub const CHOSEN_FIELD : FieldOptions = FieldOptions::BLS12_381;
     } else if #[cfg(feature = "baby_bear")] {
         mod generic_ark;
-        pub type FieldElement = generic_ark::FieldElement<ark_baby_bear::Fr>;
+        pub type FieldElement = generic_ark::FieldElement<ark_baby_bear_ff::Fr>;
         pub const CHOSEN_FIELD : FieldOptions = FieldOptions::BabyBear;
     } else {
         compile_error!("please specify a field to compile with");

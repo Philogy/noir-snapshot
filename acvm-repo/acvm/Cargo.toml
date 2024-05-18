@@ -24,7 +24,6 @@ acvm_blackbox_solver.workspace = true
 indexmap = "1.7.0"
 
 [features]
-default = ["bn254"]
 bn254 = [
     "acir/bn254",
     "brillig_vm/bn254",
@@ -34,6 +33,9 @@ bls12_381 = [
     "acir/bls12_381",
     "brillig_vm/bls12_381",
     "acvm_blackbox_solver/bls12_381",
+]
+baby_bear = [
+    "acir/baby_bear"
 ]
 
 [dev-dependencies]

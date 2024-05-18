@@ -14,7 +14,7 @@ repository.workspace = true
 
 [dependencies]
 acir.workspace = true
-acvm_blackbox_solver.workspace = true
+acvm_blackbox_solver = {workspace = true, features = ["bn254"]}
 thiserror.workspace = true
 cfg-if = "1.0.0"
 hex.workspace = true
@@ -52,5 +52,5 @@ name = "criterion"
 harness = false
 
 [features]
-default = ["bn254"]
 bn254 = ["acir/bn254"]
+baby_bear = ["acir/baby_bear"]

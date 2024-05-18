@@ -2763,10 +2763,10 @@ name = "nargo_cli"
 version = "0.29.0"
 dependencies = [
  "acvm",
+ "acvm_blackbox_solver",
  "assert_cmd",
  "assert_fs",
  "async-lsp",
- "bn254_blackbox_solver",
  "build-data",
  "clap",
  "clap-markdown",
