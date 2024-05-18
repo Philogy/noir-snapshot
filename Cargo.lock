@@ -31,6 +31,7 @@ dependencies = [
  "ark-bls12-381",
  "ark-bn254",
  "ark-ff",
+ "ark_baby_bear_ff",
  "cfg-if 1.0.0",
  "hex",
  "num-bigint",
@@ -361,6 +362,14 @@ checksum = "94893f1e0c6eeab764ade8dc4c0db24caf4fe7cbbaafc0eba0a9030f447b5185"
 dependencies = [
  "num-traits",
  "rand 0.8.5",
+]
+
+[[package]]
+name = "ark_baby_bear_ff"
+version = "0.1.0"
+source = "git+https://github.com/Philogy/ark-baby-bear?rev=c74ab05#c74ab054840a2365d203c55d3d51105943e8e1d4"
+dependencies = [
+ "ark-ff",
 ]
 
 [[package]]

@@ -11,11 +11,14 @@ cfg_if::cfg_if! {
         mod generic_ark;
         pub type FieldElement = generic_ark::FieldElement<ark_bn254::Fr>;
         pub const CHOSEN_FIELD : FieldOptions = FieldOptions::BN254;
-
     } else if #[cfg(feature = "bls12_381")] {
         mod generic_ark;
         pub type FieldElement = generic_ark::FieldElement<ark_bls12_381::Fr>;
         pub const CHOSEN_FIELD : FieldOptions = FieldOptions::BLS12_381;
+    } else if #[cfg(feature = "baby_bear")] {
+        mod generic_ark;
+        pub type FieldElement = generic_ark::FieldElement<ark_baby_bear::Fr>;
+        pub const CHOSEN_FIELD : FieldOptions = FieldOptions::BabyBear;
     } else {
         compile_error!("please specify a field to compile with");
     }
@@ -25,6 +28,7 @@ cfg_if::cfg_if! {
 pub enum FieldOptions {
     BN254,
     BLS12_381,
+    BabyBear,
 }
 
 impl FieldOptions {
@@ -32,6 +36,7 @@ impl FieldOptions {
         match self {
             FieldOptions::BN254 => "bn254",
             FieldOptions::BLS12_381 => "bls12_381",
+            FieldOptions::BabyBear => "baby_bear",
         }
     }
 
@@ -63,4 +68,4 @@ macro_rules! assert_unique_feature {
 }
 // https://internals.rust-lang.org/t/mutually-exclusive-feature-flags/8601/7
 // If another field/feature is added, we add it here too
-assert_unique_feature!("bn254", "bls12_381");
+assert_unique_feature!("bn254", "bls12_381", "baby_bear");
